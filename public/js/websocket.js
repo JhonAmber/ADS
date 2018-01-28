@@ -1,7 +1,7 @@
 
 (function (window,document,JSON){
           
-          var url = 'ws://echo.websocket.org/',
+          var url = 'wss://echo.websocket.org/',
                            ws = new WebSocket(url),
                            btnEnviar = document.getElementById("enviar"),
                            mensaje = document.getElementById("mensaje"),
