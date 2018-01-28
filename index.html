@@ -6,31 +6,35 @@
     <meta charset="utf-8">
      <link href="public/css/bootstrap.min.css" rel="stylesheet">
     <link href="public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="public/css/stylos.css" rel="stylesheet">
     <style>
+
       #map{
           height:350px;
           width:100%;
       }
 
-.footer {
+/*.footer {
   margin-top: 20px;
   width: 100%;
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px; 
   background-color: #263238; font-size: 14px;margin-top: 20px;
-}
+} */
 
     </style>
 </head>
 <body>
 
   <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark" style=" border-bottom: 1px solid rgba(0,0,0,0.1);">
+    <nav class="navbar navbar-expand-md navbar-dark" style=" border-bottom: 1px solid rgba(0,0,0,0.1); height: 85px;">
       <a class="navbar-brand" href="#">
-        <img class="" style="margin-left: 90px;" src="public/img/logo-coral.svg" alt="Udemy" width="120" >
+        <div>
+        <img class="ml-md-5 pl-md-5" style="position:absolute; margin-top: -43px" src="public/img/logo2.png" alt="Udemy" >
+        </div>
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -56,22 +60,26 @@
 
     <div class="container" style="margin-top: 30px;">
       <div class="starter-template text-center">
-        <h2>Sistema de localizacion</h2>
-        <p class="lead">Use this document as a way to quickly start any new project.</p>
+        <h2>Bienvenidos, seran hackeados</h2>
+        <p class="lead" style="font-size: 16px;">Use this document as a way to quickly start any new project.</p>
     </div>
 
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-9 col-xs-12">
+        <div class="col-sm-12 col-md-9 col-xs-12">
           <div class="card">
             <div class="card-body">
-              <div id="map"></div>
+              <div id="map">
+                
+
+
+              </div>
             </div>
           </div>
           
         </div>
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3 col-xs-12 mt-sm-4 mt-xs-4 mt-md-0 mt-4">
           <div class="card" style="border-radius: 0px;">
             <h5 class="card-header text-center " hidden style="border-radius: 0px;"> Datos</h5>
             <div class="card-body">
@@ -92,9 +100,9 @@
  <input type="hidden" id="lati" name="">
  <input type="hidden" id="long" name="">
 
-  <footer class="footer" style="background-color:rgb(52,58,64); font-size: 14px;"> <!-- #263238 -->
-      <div class="container text-center">
-        <span class="text-muted">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Jhon Amber</a></p></span>
+  <footer class="footer"> <!-- #263238 -->
+      <div class="container text-center mt-3">
+        <span class="text-muted">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Jhon Amber</a></p></span>
       </div>
   </footer>
 
