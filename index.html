@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mapa</title>
+	<meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+     <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+      #map{
+          height:350px;
+          width:100%;
+      }
+
+.footer {
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #263238; font-size: 14px;margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark" style=" border-bottom: 1px solid rgba(0,0,0,0.1);">
+      <a class="navbar-brand" href="#">
+        <img class="" style="margin-left: 90px;" src="public/img/logo-coral.svg" alt="Udemy" width="120" >
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-right" id="navbarCollapse">
+          
+        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+          <li class="nav-item">
+            <a class=" btn btn-outline-primary" href="vistas/index.html">Inicia sesion</a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item active">
+            <a class="nav-link btn " style="border-radius: 0px;background-color: #0d696c" href="vistas/registrarUsuario.html">Registrate<span class="sr-only">(current)</span></a>
+          </li>
+         <!-- <li class="nav-item">
+            <a class="nav-link" href="#"><img src="public/img/user05.png" width="70px" style="margin-top: -12px; margin-bottom: -12px; margin-right: 100px;"></a>
+          </li> -->
+        </ul>
+      <!--  <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 30px;">
+      <div class="starter-template text-center">
+        <h2>Sistema de localizacion</h2>
+        <p class="lead">Use this document as a way to quickly start any new project.</p>
+    </div>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-9 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <div id="map"></div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-3">
+          <div class="card" style="border-radius: 0px;">
+            <h5 class="card-header text-center " hidden style="border-radius: 0px;"> Datos</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">Special title treatment</h5>
+              <form class="left">
+                  <div class="form-group">
+                    <label for="">Ingrese Metros:</label>
+                    <input type="text" class="form-control form-control-sm" id="metro">
+                  </div>
+                 <button class="btn btn-info btn-sm" type="button" id="traer">Enviar</button>
+              </form>          
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+  
+ <input type="hidden" id="lati" name="">
+ <input type="hidden" id="long" name="">
+
+  <footer class="footer" style="background-color:rgb(52,58,64); font-size: 14px;"> <!-- #263238 -->
+      <div class="container text-center">
+        <span class="text-muted">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Jhon Amber</a></p></span>
+      </div>
+  </footer>
+
+  <script>
+   
+   function initMap(){
+      var opciones = {
+          zoom:13,
+          center: {lat:-12.22478,lng:-76.93294}  //{lat:-12.22478,lng:-76.93294}
+      }
+
+      var mapa = new google.maps.Map(document.getElementById('map'),opciones);
+
+
+      /* ========  GEOLOCALIZACION ======== */
+    var infoWindow = new google.maps.InfoWindow({map: map});
+
+    // Try HTML5 geolocation.
+        if(navigator.geolocation){
+
+          navigator.geolocation.getCurrentPosition(function(position) {   
+          var pos = {
+                      lat: position.coords.latitude,
+                      lng: position.coords.longitude
+                    };
+
+           infoWindow.setPosition(pos);
+           infoWindow.setContent('Location found.');
+            mapa.setCenter(pos);
+
+            addMarker({coordenada:{lat:pos.lat,lng:pos.lng}} );
+            $("#lati").val(pos.lat);
+             $("#long").val(pos.lng);
+
+          }, function() {
+            handleLocationError(true, infoWindow, mapa.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, mapa.getCenter());
+        }
+      
+
+   /* ======== / GEOLOCALIZACION ======== */
+
+    /*  var marker = new google.maps.Marker({
+          position:{lat:-12.22478,lng:-76.93294},
+          map:mapa
+      }); */
+   
+    // Listen for click on map
+     /* google.maps.event.addListener(mapa,'click', function(event){
+        // Add marker
+        addMarker({coordenada:event.latLng});
+      }); */
+
+
+    //arreglo de marcadores
+    /*  var markers = [
+        {
+          coordenada:{lat:42.4668,lng:-70.9495},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>Lynn MA</h1>'
+        },
+        {
+          coordenada:{lat:42.8584,lng:-70.9300},
+          content:'<h1>Amesbury MA</h1>'
+        },
+        {
+          coordenada:{lat:42.7762,lng:-71.0773}
+        }
+      ];
+
+        // Loop through markers
+          for(var i = 0;i < markers.length;i++){
+            // Add marker
+            addMarker(markers[i]);
+          } */
+          /* =============================================================*/
+
+        $("#traer").on("click", function (){
+          var la = $('#lati').val();
+          var lo = $("#long").val();
+          var metros=$("#metro").val();
+          $.ajax({
+              type: "GET",
+              url: "http://localhost/colegiosJson/CentrosEducativosVillaSalvador.json",
+              timeout: 3000,
+
+              success:function(data){
+                var tabla = "";
+                for(var i in data){
+                  addMarker({coordenada:{lat:data[i].latitud,lng:data[i].longitud}});
+                //addMarker({lat:data[i].latitud,lng:data[i].longitud});
+                   /*  tabla+="<tr>";
+                     tabla+="<td>"+data[i].nombreColegio+"</td>";
+                     tabla+="<td>"+data[i].latitud+"</td>";
+                     tabla+="<td>"+data[i].longitud+"</td>";
+                     tabla+="</tr>";  */
+                    if(i==3){
+                      alert($("#long").val() + $('#lati').val())
+                      break;
+                     }
+                   }  
+                $("#resultado").html(tabla);          
+               // alert(data)
+              },
+              
+              error: function(data){
+                alert("error:    "+data);
+              console.log(data);
+               }
+          })
+      }); 
+
+
+
+
+ 
+//  addMarker({coordenada:{lat:-12.22450,lng:-76.93200}} ); 
+
+      // Agregar Marker Funcion  
+      function addMarker(data){
+
+            var marker = new google.maps.Marker({
+              position:data.coordenada,
+              map:mapa
+            //  icon: data.iconImage
+            }); 
+
+            // si existe icono 
+           /* if(data.iconImage){
+                // Set icon image
+                marker.setIcon(data.iconImage);
+              } 
+
+            // si existe contenido 
+            if(data.content){
+              var infoWindow = new google.maps.InfoWindow({
+                content:data.content
+              });
+              // evento 
+              marker.addListener('click', function(){
+                infoWindow.open(mapa, marker);
+              });
+            } */
+      }
+
+
+
+
+
+ }
+
+
+  </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3MaM2rwy5xwREle60POS227zdavL9cZg&callback=initMap"></script>
+ <script type="text/javascript" src="public/js/jquery-3.2.1.js"></script>
+
+
+ <script type="text/javascript">
+//  $("document").ready(function (){
+      
+
+    
+
+  /*    $("#listAlumno").on("click", function () {
+          var print="";
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:8082/Bryan/servicio/alumno/buscarAllAlumno/123456",
+            timeout: 3000,
+            success:function(data){
+                console.log(data);
+              for (var i = 0; i < data.length; i++){
+                   print += "<li>"+ data[i].codigo +" - "+data[i].nombre+" - "+data[i].apellidos+"</li>";
+                   }
+                $("#pintar").html(print);
+            },
+            error: function(data){
+              alert("error:    "+data);
+            console.log(data);
+             }
+        })
+            });   */
+      
+
+      
+      
+   // }) 
+
+ </script>
+</body>
+</html>

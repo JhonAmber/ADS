@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   <!-- <link rel="icon" href="https://getbootstrap.com/favicon.ico"> -->
+
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/css/font-awesome.min.css" rel="stylesheet">
+
+
+   <link rel="stylesheet" href="../public/css/pe-icon-7-stroke.css">
+    <!-- Optional - Adds useful class to manipulate icon font display -->
+    <link rel="stylesheet" href="../public/css/helper.css">
+
+    <style type="text/css">
+      body>.container{
+        padding-top: 60px;
+      }
+
+      /* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+</style>
+
+<!-- =========================================== -->
+
+<style type="text/css">
+  .group{display:block;padding-left:150px; ; padding-right:; margin-top: 50px;}
+   .group::before, .group::after{display:table; content:"";}
+   .group, .group::after{clear:both;}
+   .center{text-align:center;}
+   .one_quarter{display:inline-block; float:left; margin:0 auto 0 4%; list-style:none;}
+   .one_quarter{width:22%;}
+   .first{margin-left:0; clear:left;}
+   .icon{display:inline-block; position:relative; margin-bottom:50px; width:95px; height:95px; line-height:98px; border:1px solid; border-radius:50%; background-clip:padding-box; text-align:center; font-size:45px;border-color: #D7D7D7;}
+   .font-x1{font-size:1rem; margin-top: -30px;}
+   .uppercase{text-transform:uppercase;}
+   a{color:#616161;}
+   a:hover{
+    text-decoration:none; 
+    color: #5D4037;
+   }
+   article:hover .icon { border-color: inherit; color: #FFFFFF; background-color:#333335;}  
+
+   *, *::before, *::after {
+    transition: all .4s ease-in-out; }
+
+
+
+</style>
+</head>
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #FFFFFF; border-bottom: 1px solid rgba(0,0,0,0.1);">
+      <a class="navbar-brand" href="#"><img src="../public/img/logo-coral.svg" width="120px" style="margin-top: -10px; margin-bottom: -10px; margin-left: 100px;"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-right" id="navbarCollapse">
+          
+        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+           <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color:black;"><i class="pe-7s-power pe-2x pe-va" style="font-size: 22px;"></i>&nbsp;&nbsp;Salir</a> 
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="menu.html" style="color:black;"><i class="pe-7s-home pe-2x pe-va" style="font-size: 22px;"></i>&nbsp;&nbsp;Inicio <span class="sr-only">(current)</span></a>
+            <i class=""></i> <!-- fa fa-home   fa fa-power-off -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:black;">&nbsp;&nbsp;Jhon Amber</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="../public/img/user05.png" width="50px" style="margin-top: -12px; margin-bottom: -12px; margin-right: 100px;"></a>
+          </li>
+        </ul>
+      <!--  <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </nav>
+
+
+    <!-- Begin page content -->
+  <!--  <div class="container">
+      <div class="mt-3">
+        <h1>Sticky footer with fixed navbar</h1>
+      </div>
+      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+      <p>Back to <a href="https://getbootstrap.com/docs/4.0/examples/sticky-footer">the default sticky footer</a> minus the navbar.</p>
+    </div> -->
+
+<div class="container" style="margin-top: 35px; border-radius: 1px solid black;" >
+      
+  <div class="mt-4 text-center" style=" border-radius: 1px solid black;">
+
+    <h2 class="lead" style="color:#1B5E20; font-size: 24px; font-weight: 300">Bienvenido al menu principal</h2>
+
+
+    <div class="group center center-block" id="menu">
+
+      <article class="one_quarter first"><i class="icon fa fa-cart-plus"></i>
+        <h4 class="lead font-x1 uppercase" ><a href="#">Registrar Empresas</a></h4>
+      </article>
+      <article class="one_quarter"><i class="icon fa fa-lock"></i>
+        <h4 class="lead font-x1 uppercase"><a href="#">Registrar Usuarios</a></h4>
+      </article>
+      <article class="one_quarter"><i class="icon fa fa-users"></i>
+        <h4 class="lead font-x1 uppercase"><a href="formCliente.html">Administrar Clientes</a></h4>
+      </article>
+     
+
+    </div>
+
+     <!--   <div class="group center">
+
+      <article class="one_quarter first"><i class="icon fa fa-file"></i>
+        <h4 class="lead font-x1 uppercase" ><a href="#">Reporte cierre de caja</a></h4>
+      </article>
+      <article class="one_quarter"><i class="icon fa fa-user"></i>
+        <h4 class="lead font-x1 uppercase"><a href="#">Gestionar Usuarios</a></h4>
+      </article>
+       <article class="one_quarter" ><i class="icon fa fa-area-chart"></i>
+        <h4 class="lead font-x1 uppercase"><a href="consultarVentas.html">Consultar Ventas</a></h4>
+      </article> 
+
+    </div> -->
+  </div>
+
+</div>
+<!-- =================================================== -->
+    <footer class="footer" style="background-color:rgb(52,58,64); font-size: 14px;"> <!-- #263238 -->
+      <div class="container text-center">
+        <span class="text-muted">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Jhon Amber</a></p></span>
+      </div>
+    </footer>
+
+    <!-- ================ Bootstrap core JavaScript ==================== -->(
+        <script src="../public/js/bootstrap.min.js"></script>
+        <script src="../public/js/jquery-3.2.1.js"></script>
+    
+        <script type="text/javascript">
+          
+          $(document).ready(function(){
+
+            listarPrivilegios()
+
+          })
+
+          var listarPrivilegios = function(){
+
+            $.post("../controller/controlUsuario.php?op=pri",function(data){
+
+              var a = JSON.parse(data)
+            //  alert(a[1][1] + a[2][1])
+              var tabla = " "
+
+              for (var i = 0; i < a.length; i++) {
+                    tabla += a[i][1]
+              }
+                  $('#menu').html("<div>"+tabla+"</div>")
+                  
+                  alert(a[1][1])
+              
+             
+            })
+          }
+
+
+    </script>
+  </body>
+</html>

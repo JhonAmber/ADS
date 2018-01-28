@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/css/font-awesome.min.css">
+  <style type="text/css">
+  html{margin: 0 0 0 0; padding: 0,0,0,0;}
+    body{ background-image: url(../public/img/3.png);margin: 0 0 0 0; padding: -50px -50px 0 0; max-height:100% 100%;background-repeat: no-repeat;background-size:100% 100vh} 
+    #div1{width: 100%; height: 100vh; background-color: rgba(0,0,0,0.2); padding-top: 0px; padding-bottom: 0px;} 
+    .login-box-body{background-color: rgb(255,255,255); opacity: 1;}
+    .div2{margin-bottom: 5px; margin-top: 10px;}
+    #div3{margin-bottom: 20px; margin-top: 10px;}
+    .div4{margin-bottom: 25px;} 
+    .usu{position:absolute; margin-left: 12px; margin-top: 7px; color:rgba(1,1,1,0.4); font-weight: 500; font-family:inherit; font-size: 14px; }
+    .pas{position:absolute; margin-left: 12px; margin-top: 7px; color:rgba(1,1,1,0.4); font-weight: 500;font-family:inherit; font-size: 14px;}
+    
+    #div6{font-weight: 100; margin-bottom: 0px; padding-bottom: 0px;  height: 10px; }
+    .txtusu{
+    border-radius: 0px; 
+    }
+/*==================================*/
+.login-logo{font-size:35px;text-align:center;margin-bottom:40px;font-weight:300}.login-logo a{color:#444}.login-page{background:#d2d6de}
+.login-box{width:350px;margin:0 auto; padding-top:50px;}@media (max-width:768px){.login-box{width:90%;margin-top:20px}}/*320px  minimo 320, maximo 412*/
+.login-box-body{background:#fff;padding:22px;border-top:0;color:#666;}.login-box-body .form-control-feedback,.register-box-body .form-control-feedback{color:#777}.login-box-msg,.register-box-msg{margin:0;text-align:center;padding:0 20px 20px 20px}
+
+  </style>
+
+</head>
+<body> <!-- 1500px 950px; -->
+<div id="div1">
+<div class="login-box">
+ 
+  <div class="login-logo" >
+    <a href="#"><b>UNT</b>ELS</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body"><!-- style="background-color: rgba(50,64,77,.9);" -->
+    <div><img src="../public/img/logoUntels.PNG" alt="aa" width="80px" style="position: absolute; margin-left: -10px; margin-top:-10px; opacity: 0.1;"></div>
+      <div class="text-center div2"> 
+        <span><img src="../public/img/boy.png" width="110px"></span> <!-- <i class="fa fa-user-circle fa-5x"></i> -->
+           <p id="div3">INICIAR SESION</p>  
+      </div>
+    <form action="controller/controlUsuario.php?op=validar" method="POST" > <!-- onSubmit="return validarUsuario()"  -->
+      <div class="form-group has-feedback div4">
+        <p class="usu lead" style=""><span class="fa fa-user"></span>&nbsp; Username</p>
+        <input type="text" class="form-control txtusu" id="txtusu" required maxlength="6" name="usu">    
+      </div>
+      <div class="form-group has-feedback mb-3">
+         <p class="pas" style=""><span class="fa fa-unlock-alt"></span>&nbsp; Password</p>
+        <input type="password" class="form-control txtusu2" id="txtpas" name="pas" required > <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" -->
+      </div>
+      <div class="row mb-1" >
+        <div class="col-12">
+          <button type="submit" class="btn btn-info btn-block btn-flat btn-sm" style="background-color: rgb(6,107,103)">Entrar</button>
+        </div>
+        <div class="col-12 text-center "  id="div6">
+          <a class="p" href="vistas/registrarUsuario.html">Registrarse</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- /.login-box-body -->
+
+</div>
+
+</div>
+
+<script src="../public/js/jquery-3.2.1.js"></script>
+<script src="../public/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="public/js/validarIngreso.js"></script>
+
+<script type="text/javascript"> 
+
+  $(document).ready(function(){
+
+    $('.txtusu').focus(function(){
+
+       $('.usu').animate({marginTop:-25}, 200) 
+
+     }).focusout(function(){
+
+          if($('.txtusu').val().length >= 1){
+
+            $('.usu').css(marginTop,-25); 
+
+          }else{ 
+
+                $('.usu').animate({marginTop:8},200)
+            } 
+        }) 
+
+    $('.txtusu2').focus(function(){$('.pas').animate({marginTop:-25}, 200) }).focusout(function(){
+      if( $('.txtusu2').val().length>= 1 ){  $('.pas').css(marginTop,-25) }else{   $('.pas').animate({marginTop:8},200)} 
+      })
+
+  })  
+</script>
+</html>
